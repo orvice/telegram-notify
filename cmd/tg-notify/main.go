@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/orvice/utils/env"
-	"gopkg.in/telegram-bot-api.v4"
 	"os"
+
+	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/orvice/utils/env"
 )
 
 var (
 	telegramToken  string
 	telegramChatID int64
+	message        string
 
 	bot *tgbotapi.BotAPI
 )
@@ -17,6 +19,8 @@ var (
 func initEnv() {
 	telegramToken = env.Get("TELEGRAM_TOKEN")
 	telegramChatID = int64(env.GetInt("TELEGRAM_CHATID"))
+
+	message = env.Get("MESSAGE")
 }
 
 func initBot() error {
@@ -30,8 +34,17 @@ func main() {
 	initEnv()
 	err = initBot()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("bot init fail: ", err)
 		os.Exit(1)
 	}
 
+	if len(message) != 0 {
+		msg := tgbotapi.NewMessage(telegramChatID, message)
+		reply, err := bot.Send(msg)
+		if err != nil {
+			fmt.Println("send error :", err)
+			return
+		}
+		fmt.Println("reply id:  ", reply.MessageID)
+	}
 }

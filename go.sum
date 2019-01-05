@@ -1,3 +1,5 @@
+github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible h1:2cauKuaELYAEARXRkq2LrJ0yDDv1rW7+wrTEdVL3uaU=
+github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible/go.mod h1:qf9acutJ8cwBUhm1bqgz6Bei9/C/c93FPDljKWwsOgM=
 github.com/orvice/utils v0.0.0-20180715141935-5b71615d9c36 h1:AuGKyNjW6iAb+IGZbQFRPyjJjVR1o/vkCPZIXjOLU1k=
 github.com/orvice/utils v0.0.0-20180715141935-5b71615d9c36/go.mod h1:2WVdjh2swOycvNPtGpbP49+Idjavuop9pfYr8RytRfs=
 github.com/technoweenie/multipartstreamer v1.0.1 h1:XRztA5MXiR1TIRHxH2uNxXxaIkKQDeX7m2XsSOlQEnM=
