@@ -40,6 +40,7 @@ func main() {
 
 	if len(message) != 0 {
 		msg := tgbotapi.NewMessage(telegramChatID, message)
+		msg.ParseMode = tgbotapi.ModeMarkdown
 		reply, err := bot.Send(msg)
 		if err != nil {
 			fmt.Println("send error :", err)
