@@ -1,13 +1,7 @@
-FROM golang:1.11 as builder
+FROM orvice/ubuntu-base
 
-WORKDIR /home/app
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
-RUN make build
+RUN mkdir /app/bin
 
+WORKDIR /app/bin
 
-
-FROM orvice/go-runtime:lite
-
-COPY --from=builder /home/app/bin/tg-notify .
+ADD notify.sh .
