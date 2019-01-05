@@ -1,0 +1,6 @@
+github.com/orvice/utils v0.0.0-20180715141935-5b71615d9c36 h1:AuGKyNjW6iAb+IGZbQFRPyjJjVR1o/vkCPZIXjOLU1k=
+github.com/orvice/utils v0.0.0-20180715141935-5b71615d9c36/go.mod h1:2WVdjh2swOycvNPtGpbP49+Idjavuop9pfYr8RytRfs=
+github.com/technoweenie/multipartstreamer v1.0.1 h1:XRztA5MXiR1TIRHxH2uNxXxaIkKQDeX7m2XsSOlQEnM=
+github.com/technoweenie/multipartstreamer v1.0.1/go.mod h1:jNVxdtShOxzAsukZwTSw6MDx5eUJoiEBsSvzDU9uzog=
+gopkg.in/telegram-bot-api.v4 v4.6.4 h1:hpHWhzn4jTCsAJZZ2loNKfy2QWyPDRJVl3aTFXeMW8g=
+gopkg.in/telegram-bot-api.v4 v4.6.4/go.mod h1:5DpGO5dbumb40px+dXcwCpcjmeHNYLpk0bp3XRNvWDM=
