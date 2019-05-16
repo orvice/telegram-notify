@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/orvice/utils/env"
 	"os"
@@ -32,6 +33,10 @@ func initBot() error {
 func main() {
 	var err error
 	initEnv()
+
+	flag.StringVar(&result,"r","unknown","result")
+	flag.Parse()
+
 	err = initBot()
 	if err != nil {
 		fmt.Println("bot init fail: ", err)
