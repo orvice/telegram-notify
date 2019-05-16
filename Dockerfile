@@ -11,4 +11,4 @@ RUN make build
 
 FROM orvice/go-runtime:lite
 
-COPY --from=builder /home/app/bin/telegram-notify .
+COPY --from=builder /home/app/bin/tg-notify .
