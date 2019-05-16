@@ -44,7 +44,7 @@ func main() {
 	}
 
 	format := `
-*%s [%s/%s] Deploy Result*
+*%s [%s/%s] Build Result*
 
 - 🍊 PipelineUrl: %s
 - 🍭 Commit Message: %s
