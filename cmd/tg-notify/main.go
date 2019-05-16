@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/orvice/utils/env"
 	"os"
 
 	"github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/orvice/utils/env"
 )
 
 var (
@@ -38,7 +38,20 @@ func main() {
 		os.Exit(1)
 	}
 
+	format := `
+*%s [%s/%s] Deploy Result*
+
+- 🍊 PipelineUrl: %s
+- 🍭 Commit Message: %s
+
+`
+
+	url := fmt.Sprintf("%s/pipelines/%s", Env("CI_PROJECT_URL"), Env("CI_PIPELINE_ID"))
 	if len(message) != 0 {
+
+		message = fmt.Sprintf(format, message,
+			Env("CI_PROJECT_NAMESPACE"), Env("CI_PROJECT_NAME"), url, Env("CI_COMMIT_TITLE"))
+
 		msg := tgbotapi.NewMessage(telegramChatID, message)
 		msg.ParseMode = tgbotapi.ModeMarkdown
 		reply, err := bot.Send(msg)
@@ -48,4 +61,8 @@ func main() {
 		}
 		fmt.Println("reply id:  ", reply.MessageID)
 	}
+}
+
+func Env(k string) string {
+	return os.Getenv(k)
 }
