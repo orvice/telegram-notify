@@ -11,7 +11,7 @@ import (
 var (
 	telegramToken  string
 	telegramChatID int64
-	message        string
+	result         string
 
 	bot *tgbotapi.BotAPI
 )
@@ -20,7 +20,7 @@ func initEnv() {
 	telegramToken = env.Get("TELEGRAM_TOKEN")
 	telegramChatID = int64(env.GetInt("TELEGRAM_CHATID"))
 
-	message = env.Get("MESSAGE")
+	result = env.Get("result")
 }
 
 func initBot() error {
@@ -47,9 +47,9 @@ func main() {
 `
 
 	url := fmt.Sprintf("%s/pipelines/%s", Env("CI_PROJECT_URL"), Env("CI_PIPELINE_ID"))
-	if len(message) != 0 {
+	if len(result) != 0 {
 
-		message = fmt.Sprintf(format, message,
+		message := fmt.Sprintf(format, result,
 			Env("CI_PROJECT_NAMESPACE"), Env("CI_PROJECT_NAME"), url, Env("CI_COMMIT_TITLE"))
 
 		msg := tgbotapi.NewMessage(telegramChatID, message)
